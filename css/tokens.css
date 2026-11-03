@@ -1,0 +1,155 @@
+/* ==========================================================================
+   DESIGN TOKENS — SYSTEM & THEME DEFINITIONS
+   Single source of truth for color, space, radius, blur, shadow, easing, z-index.
+   Strict rule: all hex codes are centralized here and in config.js.
+   ========================================================================== */
+
+:root {
+  /* ── 1. Color Palette: Wallpaper Mesh (Cobalt Theme Default) ── */
+  --wp-stop-0: #D9CEB1; /* Warm Sand / Cream */
+  --wp-stop-1: #C8D3CE; /* Soft Sage */
+  --wp-stop-2: #8BB7B6; /* Teal Mist */
+  --wp-stop-3: #3E8FE2; /* Vivid Azure */
+  --wp-stop-4: #014BC8; /* Deep Cobalt Blue */
+
+  /* Ambient Blur Blobs */
+  --wp-blob-1: rgba(255, 255, 255, 0.20);
+  --wp-blob-2: rgba(126, 200, 255, 0.33);
+  --wp-blob-3: rgba(10, 46, 140, 0.40);
+  --wp-blob-4: rgba(1, 75, 200, 0.25);
+
+  /* Diagonal Sheen & Light Streak */
+  --wp-streak: rgba(255, 255, 255, 0.22);
+
+  /* ── 2. Interactive Accent & Brand ── */
+  --color-accent: #0A84FF; /* Apple System Blue */
+  --color-accent-glow: rgba(10, 132, 255, 0.35);
+  --color-focus-ring: #0A84FF;
+
+  /* ── 3. Typography & Hierarchy ── */
+  --font-family-system: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-size-name: clamp(26px, 6.4vw, 32px);
+  --font-weight-name: 700;
+  --letter-spacing-name: -0.022em;
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.82);
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --text-shadow-name: 0 2px 18px rgba(0, 20, 60, 0.28);
+  --text-scrim: radial-gradient(ellipse at 50% 30%, rgba(0, 20, 60, 0.22), transparent 70%);
+
+  /* ── 4. Card Geometry & Layered Glass Recipe ── */
+  --card-width: min(92vw, 430px);
+  --card-aspect: 430 / 660;
+  --card-radius: 44px;
+  --card-padding: 34px 26px 30px;
+  --card-gap: clamp(14px, 2.4vh, 22px);
+
+  /* Layered Glass Values */
+  --glass-card-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.10) 22%, rgba(255, 255, 255, 0.06) 55%, rgba(255, 255, 255, 0.12) 100%);
+  --glass-card-blur: 32px;
+  --glass-card-saturate: 180%;
+  --glass-card-border: rgba(255, 255, 255, 0.35);
+  --glass-card-highlight-top: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  --glass-card-highlight-bottom: inset 0 -1px 0 rgba(255, 255, 255, 0.18);
+  --glass-card-shadow-outer: 0 30px 80px -20px rgba(2, 20, 60, 0.55);
+  --glass-card-specular-corner: rgba(255, 255, 255, 0.22);
+  --glass-fallback-solid: rgba(18, 32, 58, 0.86);
+
+  /* ── 5. Avatar Ring & Glow ── */
+  --avatar-size: 116px;
+  --avatar-border-color: rgba(255, 255, 255, 0.90);
+  --avatar-ring-outer: rgba(255, 255, 255, 0.12);
+  --avatar-ring-inner: rgba(255, 255, 255, 0.40);
+  --avatar-shadow: 0 0 0 6px var(--avatar-ring-outer), 0 12px 32px rgba(0, 20, 60, 0.35), inset 0 0 0 1px var(--avatar-ring-inner);
+  --avatar-glow-blur: 18px;
+  --avatar-glow-opacity: 0.35;
+  --avatar-glow-duration: 6s;
+
+  /* ── 6. Link Tiles ── */
+  --tile-icon-size: 52px;
+  --tile-fill: rgba(142, 142, 147, 0.42);
+  --tile-fill-hover: rgba(255, 255, 255, 0.18);
+  --tile-border: rgba(255, 255, 255, 0.22);
+  --tile-border-hover: rgba(255, 255, 255, 0.45);
+  --tile-blur: 18px;
+  --tile-saturate: 140%;
+  --tile-radius: 26px;
+  --tile-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 8px 24px -12px rgba(2, 20, 60, 0.45);
+  --tile-shadow-hover: inset 0 1px 0 rgba(255, 255, 255, 0.40), 0 14px 28px -10px rgba(2, 20, 60, 0.55);
+  --tile-icon-shadow: drop-shadow(0 6px 14px rgba(0, 20, 60, 0.28));
+  --tile-gap: 14px;
+  --tile-aspect-square: 1 / 1;
+  --tile-aspect-wide: 306 / 148;
+
+  /* ── 7. CTA Contact Pill ── */
+  --cta-bg: #FFFFFF;
+  --cta-color: #0B1B3A;
+  --cta-height: 62px;
+  --cta-radius: 999px;
+  --cta-shadow: 0 14px 34px -12px rgba(0, 10, 40, 0.55), inset 0 1px 0 #FFFFFF;
+  --cta-shadow-hover: 0 18px 40px -10px rgba(0, 10, 40, 0.65), inset 0 1px 0 #FFFFFF;
+
+  /* ── 8. Team Member Dock / Switcher ── */
+  --dock-bg: rgba(255, 255, 255, 0.16);
+  --dock-border: rgba(255, 255, 255, 0.28);
+  --dock-blur: 24px;
+  --dock-radius: 999px;
+  --dock-shadow: 0 10px 30px -10px rgba(0, 10, 35, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  --dock-height: 56px;
+  --dock-padding: 6px;
+  --dock-item-size: 40px;
+  --dock-gap: 6px;
+  --dock-inactive-opacity: 0.55;
+  --dock-inactive-saturate: 0.70;
+
+  /* ── 9. Tooltip & Toast ── */
+  --tooltip-bg: rgba(18, 30, 52, 0.85);
+  --tooltip-border: rgba(255, 255, 255, 0.20);
+  --tooltip-blur: 16px;
+  --toast-bg: rgba(10, 22, 45, 0.90);
+  --toast-color: #FFFFFF;
+
+  /* ── 10. Z-Index Layering ── */
+  --z-wallpaper: 0;
+  --z-mesh-blobs: 1;
+  --z-mesh-streak: 2;
+  --z-mesh-grain: 3;
+  --z-card-base: 10;
+  --z-card-content: 20;
+  --z-dock: 30;
+  --z-tooltip: 40;
+  --z-toast: 50;
+  --z-debug: 1000;
+
+  /* ── 11. Brand Icon Color Tokens ── */
+  --icon-white: #FFFFFF;
+  --icon-black: #000000;
+  --icon-ig-0: #FEDA75;
+  --icon-ig-1: #FA7E1E;
+  --icon-ig-2: #D62976;
+  --icon-ig-3: #962FBF;
+  --icon-ig-4: #4F5BD5;
+  --icon-fb: #1877F2;
+  --icon-wa: #25D366;
+  --icon-yt-bg: #FFFFFF;
+  --icon-yt-red: #FF0000;
+  --icon-tg-0: #2AABEE;
+  --icon-tg-1: #229ED9;
+  --icon-mail-env-0: #FFD43B;
+  --icon-mail-env-1: #FFA000;
+  --icon-mail-flap-0: #FFE066;
+  --icon-mail-flap-1: #FFB300;
+  --icon-mail-badge: #FF5E3A;
+  --icon-mail-crease: #E68A00;
+  --icon-mail-sheet: #FFFFFF;
+  --icon-mail-line: #E5E5EA;
+  --icon-tw: #1D9BF0;
+  --icon-li: #0A66C2;
+  --icon-gh: #24292E;
+  --icon-dr: #EA4C89;
+  --icon-be: #053EFF;
+  --icon-sp: #1ED760;
+  --icon-web-0: #34C759;
+  --icon-web-1: #30D158;
+  --icon-custom: #5856D6;
+}
